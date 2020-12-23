@@ -1,0 +1,1 @@
+{"wifi1": "000", "wifi2": "ywos", "LS-QUCK": "jangansalah"}
