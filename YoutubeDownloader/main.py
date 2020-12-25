@@ -14,9 +14,10 @@ def menu():
 
     ans = input("Masukan pilihan kamu ! ")
     
-    quality = input("Masukan Kualitas video (low, medium, high)")
-    print(quality)
+    
+
     if (ans == "1" or ans == "2" ):
+        quality = input("Masukan Kualitas video (low, medium, high) ")
         if (ans == "2"):
             link = input("Enter the Link Playlist: ")
             downloader = ytb.YTDownloader(link,quality) 
@@ -25,16 +26,17 @@ def menu():
 
         elif (ans == "1"):
             link = input("Enter youtube Link: ")
-            print(link)
             downloader = ytb.YTDownloader(link,quality)
-            downloader.download_video()
+            downloader.download_videowithSound()
             downloader.confirm()
+
     elif (ans == "3"):
         link = input("Enter youtube link : ")
         print("Downloading ....")
-        downloader = ytb.YTDownloader(link,)
-        filename = downloader.download_video()
+        downloader = ytb.YTDownloader(link,'low')
+        filename = downloader.download_soundOnly()
         print("Converting")
+        print('filename')
         yfc.convert_to_mp3(filename)
         downloader.confirm()
     menu()
