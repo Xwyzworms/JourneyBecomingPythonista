@@ -1,7 +1,8 @@
 ''' This code only Randomize dice rolling , well basic :D ,''' 
 
 import random
-
+import numpy as np
+import pandas as pd
 if __name__ == "__main__":
     print("Dice Simulator")
     ans = "y"
@@ -9,7 +10,7 @@ if __name__ == "__main__":
         numb = random.randint(1,6)
 
         if(numb == 1):
-            print("------------------------")
+            print("------------------------b")
             for i in range(0,5):
                 print("| {:<20} |".format(""))
                 for j in range(0,5):
