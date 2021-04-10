@@ -42,7 +42,9 @@ if __name__ == "__main__":
     pattern = r"\b(\w{3,13})\b"
     regexObj = regex.compile(pattern) 
     ScrambledtextList = regexObj.findall(sampleScramble)
+    def getpermutationText(text : str) :
+        return "".join(text[indx] for indx in np.random.permutation(len(text) -2))
     def randStr(chars = string.ascii_lowercase, N=10):
 	    return ''.join(choice(chars) for _ in range(N))
-    Scrambledtext = [text.replace(text[1:-1],randStr(N=len(text)-2)) if text in ScrambledtextList else text for text in sampleScramble.split()]
+    Scrambledtext = [text.replace(text[1:-1],getpermutationText(text)) if text in ScrambledtextList else text for text in sampleScramble.split()]
     print(Scrambledtext)  
